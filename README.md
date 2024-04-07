@@ -31,7 +31,7 @@ Competências trabalhadas no projeto:
 - Criei as tabelas com o workbench
 - Existiam alguns problemas e erros no código fornecido como passo a passo, resolvi adaptando a sintaxe, por exemplo:
 	
-> Onde tinha ```sql alter table departament drop  departament_ibfk_1; deveria ser``` deveria ser `alter table departament drop foreign key departament_ibfk_1;` (se tentamos com a query fornecida o SQL entende que queremos retirar um coluna e não uma constraint e sempre apresenta o erro de não estar achando a coluna para ser excluída.
+> Onde tinha `sql alter table departament drop  departament_ibfk_1; deveria ser` deveria ser `alter table departament drop foreign key departament_ibfk_1;` (se tentamos com a query fornecida o SQL entende que queremos retirar um coluna e não uma constraint e sempre apresenta o erro de não estar achando a coluna para ser excluída.
 
 > Sempre que tentava popular a tabela employee era apresentado um erro de constraint da foreing key. Depois de pensar um pouco vi que o SQL estava apresentando o erro porque ele não achava a referência para a qual a foreign key estava apontando. Então excluí a constraint, foram populadas as tabelas, depois disso consegui definir a foreign key referenciando Super_ssn. Isso resolveu o problema.
 
@@ -50,13 +50,14 @@ Competências trabalhadas no projeto:
 - Renomeei as colunas da tabela para ficarem mais simples de serem entendidos
 - Realizei a junção dos colaboradores com os seus gerentes utilizando o self join na seguinte query:
 
-select concat(t1.Fname, " ", t1.Minit, " ", t1.Lname) as Employee, 
-if (t1.Super_ssn is NULL, "Company Director", concat(t2.Fname, " ", t2.Minit, " ", t2.Lname)) as Manager
-from employee t1
-join employee t2 on t1.Super_ssn = t2.Ssn 
-or (t1.Super_ssn is NULL and t1.Ssn = t2.Ssn);
-
-- Renomeei essa tabela para employee_manager
+	```sql
+	select concat(t1.Fname, " ", t1.Minit, " ", t1.Lname) as Employee, 
+	if (t1.Super_ssn is NULL, "Company Director", concat(t2.Fname, " ", t2.Minit, " ", t2.Lname)) as Manager
+	from employee t1
+	join employee t2 on t1.Super_ssn = t2.Ssn 
+	or (t1.Super_ssn is NULL and t1.Ssn = t2.Ssn);
+	```
+	- Renomeei essa tabela para employee_manager
 
 - Mesclei as colunas Fname, Minit e Lname  da tabela employee_departament em uma coluna chamada Fullname separando os valores por espaços
 - Juntei a tabelas employee_departament na tabela employee_manager usando os atributos employee_department.Fullname e employee_manager.employee como referências para a junção
@@ -67,9 +68,11 @@ or (t1.Super_ssn is NULL and t1.Ssn = t2.Ssn);
 - Renomeei a tabela resultante para employee_manager_departament
 - Foi extraída tabela com a quantidade de funcionários por gerente usando SQL:
 
-select count(*) as Employee, 
-concat(t2.Fname, " ", t2.Minit, " ", t2.Lname) as Manager
-from employee t1
-join employee t2 on t1.Super_ssn = t2.Ssn 
-or (t1.Super_ssn is NULL and t1.Ssn = t2.Ssn)
-group by 2;
+	```sql
+	select count(*) as Employee, 
+	concat(t2.Fname, " ", t2.Minit, " ", t2.Lname) as Manager
+	from employee t1
+	join employee t2 on t1.Super_ssn = t2.Ssn 
+	or (t1.Super_ssn is NULL and t1.Ssn = t2.Ssn)
+	group by 2;
+	```
