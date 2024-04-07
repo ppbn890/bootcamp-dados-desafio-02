@@ -1,6 +1,6 @@
 # Bootcamp Dados com Python - Digital Inovation One (Desafio 02)
 
-LINK PRICIPAL: https://app.powerbi.com/links/xSKy6wCgkd?ctid=5302e0ca-772c-481a-9c22-0624b80be5ee&pbi_source=linkShare
+**Link Principal**: [Ver Projeto](https://app.powerbi.com/links/xSKy6wCgkd?ctid=5302e0ca-772c-481a-9c22-0624b80be5ee&pbi_source=linkShare)
 
 Projeto onde realizamos a criação de um banco de dados em na plataforma Azure, persistimos o banco de dados populando o mesmo com informações sobre uma empresa e seus funcionários, conectamos o banco de dados da Azure no Power BI, realizamos transformações e criamos visões desses dados e criamos um relatório para validar a estrutura das informações.
 
