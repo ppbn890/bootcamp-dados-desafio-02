@@ -31,7 +31,7 @@ Competências trabalhadas no projeto:
 - Criei as tabelas com o workbench
 - Existiam alguns problemas e erros no código fornecido como passo a passo, resolvi adaptando a sintaxe, por exemplo:
 	
-> Onde tinha `alter table departament drop  departament_ibfk_1; deveria ser` deveria ser `alter table departament drop foreign key departament_ibfk_1;` (se tentamos com a query fornecida o SQL entende que queremos retirar um coluna e não uma constraint e sempre apresenta o erro de não estar achando a coluna para ser excluída.
+> Onde tinha ```sql alter table departament drop  departament_ibfk_1; deveria ser``` deveria ser `alter table departament drop foreign key departament_ibfk_1;` (se tentamos com a query fornecida o SQL entende que queremos retirar um coluna e não uma constraint e sempre apresenta o erro de não estar achando a coluna para ser excluída.
 
 > Sempre que tentava popular a tabela employee era apresentado um erro de constraint da foreing key. Depois de pensar um pouco vi que o SQL estava apresentando o erro porque ele não achava a referência para a qual a foreign key estava apontando. Então excluí a constraint, foram populadas as tabelas, depois disso consegui definir a foreign key referenciando Super_ssn. Isso resolveu o problema.
 
