@@ -12,6 +12,8 @@ Competências trabalhadas no projeto:
 - Extração de dados
 - Transformação de dados
 - SQL
+- MySQL
+- MySQL Workbench
 - Azure
 
 ## Contato
